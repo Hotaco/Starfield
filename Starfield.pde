@@ -5,6 +5,7 @@ boolean pressed = false;
 void setup()
 {
   size(500,500);
+  frameRate(60);
   for(int i = 0; i < John.length; i++)
   {
     John[i] = new Particles();
@@ -13,7 +14,7 @@ void setup()
   {
     Brian[i] = new Oddballs();
   }
-  frameRate(60);
+  
 }
 void draw()
 {
