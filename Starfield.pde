@@ -13,7 +13,7 @@ void setup()
   {
     Brian[i] = new Oddballs();
   }
-  frameRate(frameRate);
+  frameRate(60);
 }
 void draw()
 {
