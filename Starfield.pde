@@ -57,8 +57,8 @@ void mousePressed()
 
 class Particles
 {
-  double x;
-  double y;
+  float x;
+  float y;
   double speed = Math.random()*10;
   double angle;
   color particleColor = color(255,255,255);
