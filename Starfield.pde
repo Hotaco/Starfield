@@ -106,7 +106,6 @@ class Oddballs extends Particles
     y = 250;
     speed = 10;
     angle = Math.random()*360;
-    particleColor = color(150,0,100+(int)Math.random()*100);
   }
   
   void move()
