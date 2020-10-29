@@ -1,5 +1,4 @@
-Particles[] John = new Particles[700];
-Oddballs[] Brian = new Oddballs[500];
+Particles[] John = new Particles[1200];
 
 void setup()
 {
@@ -9,9 +8,9 @@ void setup()
   {
     John[i] = new Particles();
   }
-  for(int i = 0; i < Brian.length; i++)
+  for(int i = 0; i < John.length-700; i++)
   {
-    Brian[i] = new Oddballs();
+    John[i] = new Oddballs();
   }
 }
 
@@ -23,24 +22,19 @@ void draw()
     John[i].show();
     John[i].move();
   }
-  for(int i = 0; i < Brian.length; i++)
+  for(int i = 0; i < John.length-700; i++)
   {
-    Brian[i].show();
-    Brian[i].move();
+    John[i].show();
+    John[i].move();
   } 
 }
 
 void mousePressed()
 {
-  
+
   for(int i = 0; i < John.length; i++)
   {
     John[i].speed*=-1;
-  }
-  
-  for(int i = 0; i < Brian.length; i++)
-  {
-    Brian[i].speed*=-1;
   }   
   
 }
@@ -102,7 +96,6 @@ class Oddballs extends Particles
   {
     double xSpeed = Math.cos(angle)*speed;
     double ySpeed = Math.sin(angle)*speed;
-    
     x+=xSpeed;
     y+=ySpeed;
   }
@@ -114,5 +107,4 @@ class Oddballs extends Particles
     ellipse((float)x,(float)y,20,20); 
   }
 }
-
 
