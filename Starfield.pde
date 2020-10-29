@@ -1,7 +1,6 @@
 Particles[] John = new Particles[700];
 Oddballs[] Brian = new Oddballs[500];
-int frameRate = 60;
-boolean pressed = false;
+
 void setup()
 {
   size(500,500);
@@ -14,8 +13,8 @@ void setup()
   {
     Brian[i] = new Oddballs();
   }
-  
 }
+
 void draw()
 {
   background(0);
@@ -36,29 +35,20 @@ void mousePressed()
   
   for(int i = 0; i < John.length; i++)
   {
-    if(pressed == false){
     John[i].speed*=-1;
-    pressed = true;
-    }
-      pressed = false;
-    
   }
   
   for(int i = 0; i < Brian.length; i++)
   {
-    if(pressed == false){
     Brian[i].speed*=-1;
-    pressed = true;
-    }
-      pressed = false;
-    
-  }
+  }   
+  
 }
 
 class Particles
 {
-  float x;
-  float y;
+  double x;
+  double y;
   double speed = Math.random()*10;
   double angle;
   color particleColor = color(255,255,255);
@@ -92,7 +82,7 @@ class Particles
     fill(particleColor);
     if(speed > 5)
     {
-      fill(10*(float)speed,10*(float)speed,255);
+      fill(10,10,255);
     }
     ellipse((float)x,(float)y,5,5); 
   }
@@ -120,7 +110,7 @@ class Oddballs extends Particles
   void show()
   {
     noStroke();
-    fill(particleColor);
+    fill(150,0,255);
     ellipse((float)x,(float)y,20,20); 
   }
 }
