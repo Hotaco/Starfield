@@ -1,4 +1,5 @@
 Particles[] John = new Particles[1200];
+boolean rightMouse = false;
 
 void setup()
 {
@@ -16,7 +17,10 @@ void setup()
 
 void draw()
 {
-  background(0);
+  if(rightMouse == false)
+  {
+    background(0);
+  }
   for(int i = 0; i < John.length; i++)
   {
     John[i].show();
@@ -32,26 +36,39 @@ void draw()
 void mousePressed()
 {
 
-  for(int i = 0; i < John.length; i++)
+  if(mouseButton == LEFT)
   {
-    John[i].speed*=-1;
-  }   
+    for(int i = 0; i < John.length; i++)
+    {
+      John[i].speed*=-1;
+    }
+  }
   
+  if(mouseButton == RIGHT && rightMouse == false)
+  {
+    rightMouse = true;
+  }
+  else if(mouseButton == RIGHT && rightMouse == true)
+  {
+    rightMouse = false;
+  }
 }
 
 class Particles
 {
   double x;
   double y;
-  double speed = Math.random()*10;
+  double speed;
   double angle;
-  color particleColor = color(255,255,255);
+  color particleColor;
   
   Particles()
   {
     x = 250;
     y = 250;
     angle = Math.random()*360;
+    speed = Math.random()*10;
+    particleColor = color(255,255,255);
   }
   
   void move()
@@ -74,7 +91,7 @@ class Particles
   {
     noStroke();
     fill(particleColor);
-    if(speed > 5)
+    if(speed > 5 || (speed > -5 && speed < 0))
     {
       fill(10,10,255);
     }
@@ -88,8 +105,9 @@ class Oddballs extends Particles
   {
     x = 250;
     y = 250;
-    speed = 10;
+    speed = 9;
     angle = Math.random()*360;
+    particleColor = color(150,0,255);
   }
   
   void move()
@@ -103,7 +121,7 @@ class Oddballs extends Particles
   void show()
   {
     noStroke();
-    fill(150,0,255);
+    fill(particleColor);
     ellipse((float)x,(float)y,20,20); 
   }
 }
